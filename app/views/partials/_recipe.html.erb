@@ -1,0 +1,9 @@
+<div class='recipe-card d-flex flex-row justify-content-around rounded py-3 mt-5'>
+    <div class='d-flex flex-column justify-content-between'>
+        <%= link_to recipe.name, recipe_path(recipe)%>
+        <%= button_to recipe_path(recipe.id), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" } do %>
+             Delete
+        <% end %>
+    </div>
+    <p class='placeholder w-50'><%= recipe.description%></p>
+</div>
