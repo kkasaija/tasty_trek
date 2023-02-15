@@ -1,13 +1,13 @@
 .section-title {
-    text-align: center;
-    padding-top: 2rem;
-    font-weight: 600;
+  text-align: center;
+  padding-top: 2rem;
+  font-weight: 600;
 }
 
 .recipe-card {
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
 .recipe-title {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
