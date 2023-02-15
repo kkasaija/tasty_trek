@@ -19,6 +19,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'partials/navbar'%>
+    <div class='container'>
+      <%= yield %>
+    </div>
   </body>
 </html>
