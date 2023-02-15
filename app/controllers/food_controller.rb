@@ -4,15 +4,18 @@ class FoodController < ApplicationController
   end
 
   def new 
-
+    @food = Food.new
   end
 
   def create
-    @food = Food.create!(name: params[:name], measurement_unit: params[:measurement_unit], price: params[:price], quantity: params[:quantity], user: current_user)
+    @user = current_user
+    @food = @user.foods.build(food_params)
     
     if @food.save
+      flash.now[:success] = "Food added successfully"
       redirect_to food_index_path
     else
+      flash.now[:danger] = "Operation failed"
       render 'new'
     end
   end
@@ -24,6 +27,7 @@ class FoodController < ApplicationController
     redirect_to food_index_path
   end
 
+  private
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end

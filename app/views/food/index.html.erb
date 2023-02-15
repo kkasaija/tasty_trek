@@ -1,24 +1,26 @@
 <div>
   <h1>Food page</h1>
-</div><br />
-<%= link_to "Add food", new_food_path %> 
+</div>
+<%render partial: "partials/alert"%>
+<div class="d-flex md-3 justify-content-end"><%= link_to "Add food", new_food_path, class: "btn btn-outline-primary"%></div><br />
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th scope="col">Food</th>
-      <th scope="col">Measurement Unit</th>
-      <th scope="col">Unit Price</th>
+      <th scope="col">Measurement Unit (E.g Kg)</th>
+      <th scope="col">Unit Price (E.g, USD)</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @foods.each do |food| %>
+      <%currency = "USD"%>
       <tr>
         <td><%=food.name%></td>
         <td><%=food.measurement_unit%></td>
         <td><%=food.price%></td>
         <td>
-          <%= button_to food_path(food), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <%= button_to food_path(food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" do %>
             Delete
           <% end %>
         </td>
