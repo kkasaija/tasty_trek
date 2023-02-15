@@ -7,7 +7,7 @@ RSpec.describe FoodController, type: :controller do
                 measurement_unit: 'kilograms',
                 price: 45,
                 quantity: 4,
-                user: user)
+                user:)
   end
 
   describe '#index' do
@@ -31,7 +31,7 @@ RSpec.describe FoodController, type: :controller do
                                         measurement_unit: 'kilograms',
                                         price: 45,
                                         quantity: 4,
-                                        user: user } }
+                                        user: } }
       end.to change(Food, :count).by(1)
     end
   end
