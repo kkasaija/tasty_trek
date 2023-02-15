@@ -10,9 +10,18 @@ RSpec.describe Food, type: :model do
                 user:)
   end
 
-  describe '#has a measurenent unit' do
-    it 'returns true' do
-      expect(food.measurement_unit).to be valid
+  describe '#describes food model' do
+    it 'returns measurement_unit as kilograms' do
+      expect(food.measurement_unit).to eq('kilograms')
+    end
+
+    it 'user name field to have a value' do
+      food.user = user
+      expect(food.user).to eq user
+    end
+
+    it 'user name field can not be empty' do
+      expect(food.user).to be_valid
     end
   end
 end
