@@ -1,0 +1,28 @@
+<div class='d-flex flex-column'>
+    <h1 class="mt-5">Create a new Recipe</h1>
+    <div class='d-flex flex-column justify-center'>
+        <%= form_with url: recipes_path, method: :post, model: @recipe, class: "mt-5" do |f| %>
+        <div class="mb-4 d-flex flex-column">
+            <%= f.label 'Name:'%>
+            <%= f.text_field 'name', class: 'form-control'%>
+        </div>
+        <div class="mb-4 d-flex flex-column">
+            <%= f.label 'Description:'%>
+            <%= f.text_area 'description', class: 'form-control'%>
+        </div>
+        <div class="mb-4 d-flex flex-column">
+            <%= f.label 'Preparation time:'%>
+            <%= f.text_field 'preparation_time', class: 'form-control'%>
+        </div>
+        <div class="mb-4 d-flex flex-column">
+            <%= f.label 'Cooking time:'%>
+            <%= f.text_field 'cooking_time', class: 'form-control'%>
+        </div>
+        <div class="mb-4 d-flex flex-column form-check form-switch">
+            <%= f.check_box 'public', class: 'form-check-input', role: 'switch'%>
+            <%= f.label 'Make it Public', class: 'form-check-label'%>
+        </div>
+        <%= f.submit 'Create', class: 'btn btn-primary'%>
+        <% end %>
+    </div>
+</div>

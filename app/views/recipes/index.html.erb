@@ -1,4 +1,7 @@
 <h1 class='section-title'>Your Recipes</h1>
+<%= button_to new_recipe_path, method: :get, class: 'btn btn-primary text-right' do %>
+Create a new Recipe
+<% end %>
 <div class='recipes-container'>
     <%= render partial: 'partials/recipe', collection: @recipes %>
 </div>
