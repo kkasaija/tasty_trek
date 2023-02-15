@@ -1,0 +1,32 @@
+<h1>Add Food</h1>
+<%=form_with model: @food, url: user_food_index_path, method: :post do |f| %>
+  <% if @food.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food item from being saved:</h2>
+      <ul>
+        <% @food.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%=f.label :name, class:"form-label"%>
+    <%=f.text_field :name, class:"form-control"%>
+  </div>
+  <div class="mb-3">
+    <%=f.label :measurement_unit, class:"form-label"%>
+    <%=f.text_field :measurement_unit, class:"form-control"%>
+  </div>
+  <div class="mb-3">
+    <%=f.label :price, class:"form-label"%>
+    <%=f.number_field :price, class:"form-control"%>
+  </div>
+  <div class="mb-3">
+    <%=f.label :quantity, class:"form-label"%>
+    <%=f.number_field :quantity, class:"form-control"%>
+  </div>
+  <div class="mb-3">
+    <%=f.submit "Add Food", class:"form-control alert alert-primary"%>
+  </div>
+<%end%>
