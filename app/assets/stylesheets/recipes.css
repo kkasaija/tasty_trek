@@ -5,7 +5,7 @@
 }
 
 .recipe-card {
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0.5px 48px 100px 0.5px;
 }
 
 .recipe-title {
