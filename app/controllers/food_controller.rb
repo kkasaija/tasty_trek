@@ -1,12 +1,11 @@
 class FoodController < ApplicationController
-    def index
-      if user_signed_in?
-        @foods = Food.all
-      else
-        redirect_to new_user_session_path
-      end
+  def index
+    if user_signed_in?
+      @foods = Food.all
+    else
+      redirect_to new_user_session_path
     end
-  
+  end
 
   def new
     @food = Food.new
