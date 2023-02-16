@@ -1,7 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    current_user
-    @recipes = current_user.recipes
+    if user_signed_in?
+      @recipes = current_user.recipes
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new
@@ -10,6 +13,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create!(recipe_params.merge(user: current_user))
+    redirect_to recipes_path
   end
 
   def show
