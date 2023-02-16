@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-    <div>
+    <div class='d-flex flex-row gap-3' style="align-items: baseline;">
       <i class="fa-regular fa-bowl-food"></i>
       <a class="navbar-brand logo" href="#">Tasty Trek</a>
+      <% if user_signed_in? %>
+        <p>Welcome, <%= current_user.name%></p>
+      <%end%>
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,6 +24,14 @@
       <li class="nav-item">
         <%= link_to 'About Us', root_path, class: "nav-link"%>
       </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link border border-success rounded bg bg-info"%>
+      </li>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "nav-link border border-success rounded bg bg-info text-white" %> 
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-link border border-success rounded bg bg-info mx-2 text-white" %>
+      <%end%>
     </ul>
   </div>
 </nav>
