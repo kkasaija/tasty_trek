@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :configure_permitted_parameters, if: :devise_controller?
   layout 'application'
 
-  # def current_user
-  #   if session[:user_id]
-  #     Current.user = User.find_by(id: session[:user_id])
-  #   end
-  # end
+  protected 
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
+  end
 end
