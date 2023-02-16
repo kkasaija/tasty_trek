@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   devise_scope :user do
-    get '/sign_in', to: 'users/sessions#new'
+    get '/users/sign_in', to: 'users/sessions#new'
+    get '/users/sign_out', to: 'users/sessions#destroy'
   end
-  root 'home#index'
+  root 'recipes#index'
   resources :food
-  resources :users
   resources :recipes do
     resources :recipe_food
   end 
