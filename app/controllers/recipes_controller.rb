@@ -1,10 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    if user_signed_in?
       @recipes = current_user.recipes
-    else
-      redirect_to new_user_session_path
-    end
   end
 
   def new

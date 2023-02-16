@@ -9,6 +9,7 @@
       <th scope="col">Food</th>
       <th scope="col">Measurement Unit (E.g Kg)</th>
       <th scope="col">Unit Price (E.g, USD)</th>
+      <th scope="col">Quantity (available Qtty)</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td><%=food.name%></td>
         <td><%=food.measurement_unit%></td>
         <td><%=food.price%></td>
+        <td><%=food.quantity%><%=  food.measurement_unit%></td>
         <td>
           <%= button_to food_path(food), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" do %>
             Delete
