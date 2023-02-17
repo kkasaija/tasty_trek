@@ -1,4 +1,5 @@
 class RecipeFoodController < ApplicationController
+  before_action :authenticate_user!
   def destroy
     @ingredient = RecipeFood.find(params[:id])
     @ingredient.destroy
