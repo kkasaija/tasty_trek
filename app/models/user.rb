@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :foods
 
+  validates :name, presence: true, length: { maximum: 30 }
+
   ROLES = %i[admin default].freeze
 
   def is?(requested_role)
