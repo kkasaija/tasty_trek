@@ -6,10 +6,11 @@ Rails.application.routes.draw do
     get '/users/sign_in', to: 'users/sessions#new'
     get '/users/sign_out', to: 'users/sessions#destroy'
   end
-  root 'recipes#index'
+  root 'home#index'
   resources :food
   resources :recipes do
     resources :recipe_food
+    resources :shopping_list
   end 
 
 end
