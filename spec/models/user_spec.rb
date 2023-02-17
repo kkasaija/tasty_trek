@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before :all do
-    @user = User.new(name: 'Kareem Wilson', email: 'wkareem@gmail.com', password: '123456', role: 'admin')
-    @user.save
+  before :each do
+    @user = User.create!(name: 'Kareem Wilson', email: 'wkareem@gmail.com', password: '123456', role: 'admin')
   end
 
   context 'validation tests' do
@@ -28,6 +27,11 @@ RSpec.describe User, type: :model do
 
     it 'is not valid without password' do
       @user.password = nil
+      expect(@user).to_not be_valid
+    end
+
+    it 'is not valid without minimum password length' do
+      @user.password = '123'
       expect(@user).to_not be_valid
     end
   end
