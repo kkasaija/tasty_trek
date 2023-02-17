@@ -4,7 +4,6 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :foods
 
-
   ROLES = %i[admin default].freeze
 
   def is?(requested_role)
