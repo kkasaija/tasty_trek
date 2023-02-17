@@ -4,7 +4,7 @@ RSpec.describe RecipeFood, type: :model do
   before :each do
     @user = User.create!(name: 'Kisembo Jack', email: 'kisembo@gmail.com', password: '123456', role: 'admin')
     @food = Food.create!(name: 'Fish', measurement_unit: 'kilograms', price: 45, quantity: 4, user: @user)
-    @recipe = Recipe.create!(user: @user, name: 'Oranges', preparation_time: 3, cooking_time: 1, description: 'Best served chilled!', public: false)
+    @recipe = Recipe.create!(user: @user, name: 'Oranges', preparation_time: '00:01:45', cooking_time: '00:10:00', description: 'Best served chilled!', public: false)
     @recipe_food = RecipeFood.create!(recipe: @recipe, food: @food, quantity: 2)
   end
 
@@ -31,6 +31,18 @@ RSpec.describe RecipeFood, type: :model do
     it 'is not valid without a food_id' do
       @recipe_food.food_id = nil
       expect(@recipe_food).to_not be_valid
+    end
+  end
+
+  context 'Testing Associations' do
+    it 'belongs_to recipe' do
+      assoc = RecipeFood.reflect_on_association(:recipe)
+      expect(assoc.macro).to eq :belongs_to
+    end
+
+    it 'belongs_to food' do
+      assoc = RecipeFood.reflect_on_association(:food)
+      expect(assoc.macro).to eq :belongs_to
     end
   end
 end

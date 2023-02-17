@@ -3,13 +3,13 @@ RSpec.describe Recipe, type: :model do
 
   before :all do
     @user = User.create!(name: 'Kisembo Isingoma', email: 'kjohn@gmail.com', password: '123456', role: 'admin')
-    @recipe = Recipe.new(user: @user, name: 'Oranges', preparation_time: 10, cooking_time: 1,
+    @recipe = Recipe.create!(user: @user, name: 'Oranges', preparation_time: '10:1:23', cooking_time: '10:05:20',
                          description: 'Best served chilled!', public: false)
   end
 
   context 'Testing Validations' do
     it 'is valid with valid attributes' do
-      expect(@user).to be_valid
+      expect(@recipe).to be_valid
     end
 
     it 'is not valid without a name' do
