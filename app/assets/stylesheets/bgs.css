@@ -1,0 +1,54 @@
+.login-bg {
+  background-image: url("login.jpg");
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  z-index: -99999;
+  top: 0;
+  left: 0;
+}
+
+.signup-bg {
+  background-image: url("signup.jpg");
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  z-index: -99999;
+  top: 0;
+  left: 0;
+}
+
+.signedin-bg {
+  background-image: url("tomato.png");
+  position: fixed;
+  height: 39vh;
+  width: 39vw;
+  background-size: cover;
+  z-index: -99999;
+  top: 192px;
+  right: -205px;
+  transform: rotate(-90deg);
+  animation: slide-in 2s ease-out, stabilize 4s ease-out 2s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100vw) rotate(-90deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(-90deg);
+  }
+}
+
+@keyframes stabilize {
+  0% {
+    transform: translateX(0) rotate(-90deg);
+  }
+
+  100% {
+    transform: translateX(-20px) rotate(-90deg);
+  }
+}

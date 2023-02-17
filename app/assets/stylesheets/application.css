@@ -19,6 +19,15 @@
 }
 
 .container {
-  margin: auto;
+  margin: 0;
   font-family: "Gafata", sans-serif;
+}
+
+.notice,
+.alert {
+  font-size: 1.5rem;
+}
+
+.navbar {
+  height: 4rem;
 }

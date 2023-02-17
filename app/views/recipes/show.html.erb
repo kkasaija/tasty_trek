@@ -21,8 +21,8 @@
     <% @recipe.recipe_food.each do |ingred| %>
       <tr>
         <td><%=ingred.food.name%></td>
-        <td><%=ingred.quantity%></td>
-        <td><%=ingred.food.measurement_unit%></td>
+        <td><%=ingred.quantity%> <%= ingred.food.measurement_unit %> </td>
+        <td><%=number_to_currency(ingred.food.price * ingred.quantity) %></td>
         <td>
           <% if can? :destroy, @recipe %>
             <%= button_to recipe_recipe_food_path(@recipe, ingred), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' do %>

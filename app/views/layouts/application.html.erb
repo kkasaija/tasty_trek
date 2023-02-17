@@ -20,10 +20,13 @@
 
   <body>
     <%= render partial: 'partials/navbar'%>
-    <p class="notice text-center"><%= notice %></p>
-    <p class="alert text-center"><%= alert %></p>
+    <p class="notice text-center text-white"><%= notice %></p>
+    <p class="alert text-center text-white"><%= alert %></p>
     <div class='container'>
       <%= yield %>
     </div>
+    <% if current_user %>
+      <div class='signedin-bg'></div>
+    <%end%>
   </body>
 </html>
