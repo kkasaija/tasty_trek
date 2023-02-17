@@ -132,8 +132,6 @@ Example commands:
   git clone git@github.com:Kasaija-Kenneth/tasty_trek.git
 ```
 
--
-
 ### Install
 
 Install this project with:
