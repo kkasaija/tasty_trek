@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
@@ -5,15 +7,16 @@ class Ability
     # Define abilities for the user here. For example:
     # A registered user or a new user
     user ||= User.new
+        can :read, :all
       #   # admins have the privilege to manage everything
-      if user.admin?
-        can :manage, :all
-      else
+        return unless user.present?
         # a user can manage their own foods, recipes, and recipe_foods
         can :manage, Food, user: user
         can :manage, Recipe, user_id: user.id
         can :manage, RecipeFood, user_id: user.id
-      end
+        return unless user.is? :admin 
+        can :manage , :all
+      
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

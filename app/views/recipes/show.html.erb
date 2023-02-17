@@ -23,8 +23,10 @@
         <td><%=ingred.quantity%></td>
         <td><%=ingred.food.measurement_unit%></td>
         <td>
-          <%= button_to recipe_recipe_food_path(@recipe, ingred), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
-            Delete
+          <% if can? :destroy, @recipe %>
+            <%= button_to recipe_recipe_food_path(@recipe, ingred), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
+              Delete
+            <% end %>
           <% end %>
         </td>
       </tr>
