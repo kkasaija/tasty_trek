@@ -1,10 +1,8 @@
 class FoodController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    if user_signed_in?
-      @foods = Food.all
-    else
-      redirect_to new_user_session_path
-    end
+    @foods = Food.all
   end
 
   def new

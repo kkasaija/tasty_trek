@@ -6,7 +6,8 @@
 <div>
   <h1>Steps Go Here</h1>
 </div>
-<p class='text-right'><%= link_to "Add Ingredient" %></p>
+<p class='text-right'><%= link_to "Generate shopping list", recipe_shopping_list_index_path(@recipe) %></p>
+<p class='text-right'><%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %></p>
 <table class="table table-striped table-bordered">
   <thead>
     <tr>

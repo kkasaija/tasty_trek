@@ -13,7 +13,7 @@
   <div class="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to 'Home', root_path, class: 'nav-link'%>
       </li>
       <li class="nav-item">
         <%= link_to 'Foods', food_index_path, class: 'nav-link'%>

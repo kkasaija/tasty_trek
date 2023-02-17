@@ -1,10 +1,8 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    if user_signed_in?
-      @recipes = current_user.recipes
-    else
-      redirect_to new_user_session_path
-    end
+    @recipes = current_user.recipes
   end
 
   def new
@@ -22,7 +20,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    RecipeFood.where(recipe_id: @recipe.id).destroy_all
+    # RecipeFood.where(recipe_id: @recipe.id).destroy_all
     @recipe.destroy!
     redirect_to recipes_path
   end
