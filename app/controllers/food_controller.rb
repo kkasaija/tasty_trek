@@ -2,7 +2,7 @@ class FoodController < ApplicationController
   before_action :authenticate_user!
 
   def index
-      @foods = Food.all
+    @foods = Food.all
   end
 
   def new
