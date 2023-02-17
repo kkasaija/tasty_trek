@@ -1,7 +1,7 @@
 class RecipeFoodController < ApplicationController
   def new
     @recipe_food = RecipeFood.new
-    @foods = Food.all
+    @foods = current_user.foods
   end
 
   def create
