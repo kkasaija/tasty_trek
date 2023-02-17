@@ -31,4 +31,16 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
   end
+
+  context 'Association tests' do
+    it 'has_many foods' do
+      assoc = User.reflect_on_association(:foods)
+      expect(assoc.macro).to eq :has_many
+    end
+
+    it 'has_many recipes' do
+      assoc = User.reflect_on_association(:recipes)
+      expect(assoc.macro).to eq :has_many
+    end
+  end
 end
