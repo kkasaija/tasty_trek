@@ -1,8 +1,7 @@
 class FoodController < ApplicationController
   before_action :authenticate_user!
-
   def index
-    @foods = Food.all
+    @foods = current_user.foods
   end
 
   def new
@@ -10,15 +9,12 @@ class FoodController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @food = @user.foods.build(food_params)
+    @food = Food.create!(food_params.merge(user: current_user))
 
     if @food.save
-      flash.now[:success] = 'Food added successfully'
-      redirect_to food_index_path
+      redirect_to food_index_path, notice: 'Food added successfully.'
     else
-      flash.now[:danger] = 'Operation failed'
-      render 'new'
+      render new, alert: 'Operation failed.'
     end
   end
 
@@ -26,7 +22,7 @@ class FoodController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
 
-    redirect_to food_index_path
+    redirect_to food_index_path, notice: 'Food deleted successfully'
   end
 
   private
