@@ -1,27 +1,3 @@
-# databases:
-#   - name: postgres
-#     ipAllowList: []
-
-# services:
-#   - type: web
-#     name: tasty_trek
-#     env: ruby
-#     buildCommand: "./bin/render-build.sh"
-#     startCommand: "bundle exec puma -C config/puma.rb"
-#     # startCommand: "bundle exec rails s"
-#     envVars:
-#       - key: DATABASE_URL
-#         fromDatabase:
-#           name: postgres
-#           property: connectionString
-#       - key: RAILS_MASTER_KEY
-#         sync: false
-#   - type: redis
-#     name: redis
-#     ipAllowList: []
-#     plan: free
-#     maxmemoryPolicy: noeviction
-
 databases:
   - name: postgres
     databaseName: tasty_trek_production
