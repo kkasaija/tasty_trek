@@ -1,0 +1,16 @@
+<div class='d-flex flex-column'>
+    <h1 class="mt-5">Add Ingrediant</h1>
+    <div class='d-flex flex-column justify-center'>
+        <%= form_with url: recipe_recipe_food_index_path, method: :post, model: @recipe_food, class: "mt-5" do |f| %>
+        <div class="mb-4 d-flex flex-column">
+            <%= f.label :Ingrediant %>
+            <%= f.select :food, options_for_select(@foods.map { |f| [f.name, f.id] }) %>
+        </div>
+        <div class="mb-4 d-flex flex-column">
+            <%= f.label :Quantity %>
+            <%= f.number_field :quantity %>
+        </div>
+        <%= f.submit 'Add', class: 'btn btn-primary'%>
+        <% end %>
+    </div>
+</div>

@@ -12,4 +12,22 @@
  *
  *= require_tree .
  *= require_self
+
  */
+* {
+  font-family: "Bad Script", cursive;
+}
+
+.container {
+  margin: 0;
+  font-family: "Gafata", sans-serif;
+}
+
+.notice,
+.alert {
+  font-size: 1.5rem;
+}
+
+.navbar {
+  height: 4rem;
+}

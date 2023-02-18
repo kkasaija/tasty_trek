@@ -1,0 +1,12 @@
+<div class='d-flex section-title justify-content-start'><h1>My Recipes</h1></div>
+<div class='d-flex justify-content-end'>
+    <%= button_to new_recipe_path, method: :get, class: 'btn btn-outline-primary text-right' do %>
+        Create a new Recipe
+    <% end %>
+</div>
+<% if @recipes.empty?%>
+    <p class='text-center my-5'>There is no recipe created by you</p>
+<% end %>
+<div class='recipes-container'>
+    <%= render partial: 'partials/recipe', collection: @recipes %>
+</div>
