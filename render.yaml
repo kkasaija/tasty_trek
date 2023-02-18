@@ -7,8 +7,8 @@ services:
     name: tasty_trek
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    # startCommand: "bundle exec puma -C config/puma.rb"
-    startCommand: "bundle exec rails s"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    # startCommand: "bundle exec rails s"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
