@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'users/sessions#destroy'
   end
   root 'home#index'
+  get '/public_recipes', to: 'home#index'
   resources :food
   resources :recipes do
     resources :recipe_food

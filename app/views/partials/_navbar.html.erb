@@ -13,7 +13,7 @@
   <div class="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'Home', root_path, class: 'nav-link'%>
+        <%= link_to 'Public Recipes', public_recipes_path, class: 'nav-link'%>
       </li>
       <li class="nav-item">
         <%= link_to 'Foods', food_index_path, class: 'nav-link'%>
@@ -22,7 +22,7 @@
         <%= link_to 'My Recipes', recipes_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <%= link_to 'About Us', root_path, class: "nav-link"%>
+        <%= link_to 'About Us', public_recipes_path, class: "nav-link"%>
       </li>
       <% if user_signed_in? %>
       <li class="nav-item d-flex justify-center">
