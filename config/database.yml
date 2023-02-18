@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: tasty_trek_production
   username: tasty_trek
   password: <%= ENV["TASTY_TREK_DATABASE_PASSWORD"] %>
