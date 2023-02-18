@@ -25,7 +25,7 @@
 databases:
   - name: postgres
     databaseName: tasty_trek_production
-    user: postgres
+    user: 
 
 services:
   - type: web
