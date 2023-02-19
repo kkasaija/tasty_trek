@@ -1,17 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-    <div class='d-flex flex-row gap-3' style="align-items: baseline;">
-      <i class="fa-regular fa-bowl-food"></i>
-      <a class="navbar-brand logo" href="#">Tasty Trek</a>
-      <% if user_signed_in? %>
-        <p class='border border-success p-2 rounded'>Welcome, <%= current_user.name%></p>
-      <%end%>
-    </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="navbar">
-    <ul class="navbar-nav mr-auto">
+<nav class="d-md-flex flex-nowrap px-2 align-content-center navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+  <div class="d-flex flex-row gap-2">
+    <a class="navbar-brand logo fw-md-light" href="#">Tasty Trek</a>
+  </div>
+  <div class="me-md-2 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon p-2"></span>
+  </div>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
         <%= link_to 'Public Recipes', public_recipes_path, class: 'nav-link'%>
       </li>
@@ -25,8 +20,9 @@
         <%= link_to 'About Us', public_recipes_path, class: "nav-link"%>
       </li>
       <% if user_signed_in? %>
+        <span class='navbar-text border border-success mx-3 px-2 rounded'>Signed in as, <%= current_user.name%></span>
       <li class="nav-item d-flex justify-center">
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-success pb-0 pt-2"%>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-success mx-1 pb-0 pt-2"%>
       </li>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-success mx-2 pb-0 pt-2" %> 
