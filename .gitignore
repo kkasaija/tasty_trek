@@ -32,3 +32,4 @@
 /config/master.key
 
 /config/credentials/production.key
+/node_modules
