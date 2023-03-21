@@ -1,13 +1,13 @@
-<div class='recipe-card d-flex flex-column justify-content-around py-3 mt-5 mb-5'>
+<div class='recipe-card d-flex flex-column justify-content-around py-2 mt-2 mb-2'>
     <div class='d-flex flex-row justify-content-around align-items-baseline'>
         <div>
             <%= link_to publicrecipe.name, recipe_path(publicrecipe), class: 'recipe-title'%>
-            <p class='text-secondary m-2 '>Total food Items: <%= publicrecipe.foods.count%></p> 
+            <p class='text-secondary'>Total food Items: <%= publicrecipe.foods.count%></p> 
             <% sum = 0 %>
             <% publicrecipe.recipe_food.each do |item| %>
             <% sum += (item.food.price * item.quantity)%>
             <%end%>   
-            <p class='text-secondary m-2'>Total Price: <%= sum %></p>    
+            <p class='text-secondary'>Total Price: <%= sum %></p>    
         </div>
         <p class='placeholder w-50'><%= publicrecipe.description%></p>
     </div>
@@ -16,6 +16,6 @@
             <%= button_to recipe_path(publicrecipe.id), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: 'btn btn-danger' do %>                    Delete
             <% end %>
         <%end%>
-        <p class='text-primary'>This Recipe By: <%= publicrecipe.user.name%></p>    
+        <p class='text-primary'>Recipe created By: <%= publicrecipe.user.name%></p>    
     </div>
 </div>

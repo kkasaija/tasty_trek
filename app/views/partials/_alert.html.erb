@@ -1,1 +1,10 @@
-
+<%if notice%>
+  <div class="alert alert-success" role="alert">
+    <p class="notice text-center text-white"><%= notice %></p>
+  </div>
+<%end%>
+<%if alert%>
+  <div class="alert alert-danger" role="alert">
+    <p class="alert text-center text-white"><%= alert %></p>
+  </div>
+<%end%>

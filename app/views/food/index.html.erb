@@ -1,8 +1,8 @@
-<div>
+<div class='mt-5'>
   <h1>Food page</h1>
 </div>
 <%render partial: "partials/alert"%>
-<div class="d-flex md-3 justify-content-end"><%= link_to "Add food", new_food_path, class: "btn btn-outline-primary"%></div><br />
+<div class="d-flex md-1 justify-content-end"><%= link_to "Add food", new_food_path, class: "btn btn-outline-primary"%></div><br />
 <% if @foods.size.positive? %>
   <table class="table table-striped table-bordered">
     <thead>

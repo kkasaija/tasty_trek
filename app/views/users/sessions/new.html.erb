@@ -1,14 +1,12 @@
 <div class='login-bg'></div>
-<div class='d-flex flex-column mx-auto align-items-start align-content-center flex-wrap'>
+<div class='d-flex flex-column mx-auto mt-5 align-items-start align-content-center flex-wrap'>
   <h1 class='align-self-center mx-auto'>Sign in</h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field md-3">
-        <%= f.label :email, class: "form-label" %>
         <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "Your email" %>
       </div><br />
 
       <div class="field md-3">
-        <%= f.label :password, class: "form-label" %>
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Your password" %>
       </div><br />
 

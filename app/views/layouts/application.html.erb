@@ -17,8 +17,7 @@
 
   <body>
     <%= render partial: 'partials/navbar'%>
-    <p class="notice text-center text-white"><%= notice %></p>
-    <p class="alert text-center text-white"><%= alert %></p>
+    <%= render partial: 'partials/alert'%>
     <div class='container'>
       <%= yield %>
     </div>
